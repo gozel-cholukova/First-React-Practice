@@ -2,13 +2,12 @@ import React from 'react'
 import TodoList from './ToDo/TodoList'
 
 function App() {
-  let todos = [
+  const q = React.useState ([
     {id: 1 , completed: false, title: 'bread'},
     {id: 2 , completed: false, title: 'oil'},
     {id: 3 , completed: false, title: 'milk'},
-  ]
-
-
+  ])
+  
   function toggleTodo(id) {
     todos = todos.map(todo => {
       if (todo.id === id) {

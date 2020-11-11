@@ -19,15 +19,16 @@ const styles = {
 }
 
 function TodoItem({ todo, index, onChange }) {
-  const {removeTodo} = useContext(Context)
+  const { removeTodo } = useContext(Context)
   const classes = []
 
   if (todo.completed) {
     classes.push('done')
   }
+
   return (
     <li style={styles.li}>
-      <span className={classes.join('')}>
+      <span className={classes.join(' ')}>
         <input 
         type='checkbox' 
         checked={todo.completed}
@@ -37,7 +38,7 @@ function TodoItem({ todo, index, onChange }) {
         &nbsp;
         {todo.title}
       </span>
-      <button className='rm' onClick={removeTodo}>&times;</button>
+      <button className='rm' onClick={removeTodo.bind(null, todo.id)}>&times;</button>
     </li>
   )
 } 
